@@ -1,6 +1,8 @@
+import { StoryblokServerComponent } from "@storyblok/react/rsc"
 export const Page = ({ blok }: any) => {
-    console.log("Blokss are ::", blok)
     return <main>
-        <h2>Test Page - Output is in server console </h2>
+        {blok.blocks.map((blok: any) => (
+            <StoryblokServerComponent blok={blok} key={blok._uid} />
+        ))}
     </main>
 }
