@@ -2,7 +2,7 @@ import { RecommendedTour } from "@/components/RecommendedTour";
 import { getStoryblokApi, StoryblokStory } from "@storyblok/react/rsc";
 import { draftMode } from "next/headers"
 const fetchToursPage = async () => {
-    const isEnabled = await draftMode();
+    const { isEnabled } = await draftMode();
     const client = getStoryblokApi();
     const response = await client.getStory(`tours`, {
         version: process.env.NODE_ENV === "development" || isEnabled ? "draft" : "published",
@@ -11,7 +11,7 @@ const fetchToursPage = async () => {
 };
 const fetchAllTours = async () => {
     const client = getStoryblokApi();
-    const isEnabled = await draftMode();
+    const { isEnabled } = await draftMode();
     const response = await client.getStories({
         content_type: "tour",
         version: process.env.NODE_ENV === "development" || isEnabled ? "draft" : "published",
