@@ -14,7 +14,7 @@ export default async function HomePage() {
   return (
     <div>
       <StoryblokStory
-        bridgeOptions={{ resolve_relations: ["recommended_tours.tours"] }}
+        bridgeOptions={{ resolveRelations: ["recommended_tours.tours"] }}
         story={story} />
     </div>
   );
